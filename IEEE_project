@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice  number Prediction</title>
+</head>
+<body>
+	<h1>Dice Number Prediction</h1>
+	<p>Predict the number on Dice 1:</p>
+	<input type="number" id="dice1" placeholder="Enter a number between 1 and 6">
+	<br><br>
+	<p>Predict the number on Dice 2:</p>
+	<input type="number" id="dice2" placeholder="Enter a number between 1 and 6">
+	<br><br>
+	<button onclick="checkPrediction()">Check Prediction</button>
+	<p id="result"></p>
+	<script>
+		function checkPrediction() {
+			var prediction1 = parseInt(document.getElementById("dice1").value);
+			var prediction2 = parseInt(document.getElementById("dice2").value);
+			var roll1 = Math.floor(Math.random() * 6) + 1;
+			var roll2 = Math.floor(Math.random() * 6) + 1;
+			if (prediction1 == roll1 && prediction2 == roll2) {
+				document.getElementById("result").innerHTML = "Correct prediction on both dice!";
+			} else if (prediction1 == roll1 || prediction2 == roll2) {
+				document.getElementById("result").innerHTML = "Correct prediction on one dice. Keep trying!";
+			} else {
+				document.getElementById("result").innerHTML = "Sorry, incorrect prediction on both dice. Better luck next time!";
+			}
+		}
+	</script>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Two_red_dice_01.svg/1024px-Two_red_dice_01.svg.png" alt="error">
+</body>
+</html>
